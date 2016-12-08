@@ -21,3 +21,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Task::class, function (Faker\Generator $faker) {
+
+    return [
+        'user_id' => $faker->numberBetween($min = 1, $max = 51),
+        'name' => $faker->unique()->text($maxNbChars = 20)  ,
+    ];
+});
